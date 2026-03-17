@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Motion.js — A zero-dependency, ultra-lightweight and chainable animation library for modern web applications." />
+  <title>Motion.js — Docs & Demo</title>
+  <link rel="stylesheet" href="./src/styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@500;700;900&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- ═══════════════════ HEADER ═══════════════════ -->
+    <header class="header">
+      <h1 class="logo" data-motion="fade-in-down">Motion.js</h1>
+      <nav class="nav" data-motion="fade-in-down" data-delay="0.1">
+        <a href="#features">Features</a>
+        <a href="#docs">Docs</a>
+        <a href="#playground">Playground</a>
+        <a href="https://github.com" target="_blank" class="btn btn-nav">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <main class="hero">
+      <div class="hero-content">
+        <span class="hero-badge" data-motion="fade-in-up">✨ v1.0 — Zero Dependencies</span>
+        <h2 class="hero-title" data-motion="fade-in-up" data-delay="0.05">Animate with <span>elegance</span></h2>
+        <p class="hero-subtitle" data-motion="fade-in-up" data-delay="0.15">
+          A lightweight, chainable animation library that makes it dead simple to add smooth, performant animations to
+          any web application — with JavaScript or just HTML attributes.
+        </p>
+        <div class="hero-actions" data-motion="fade-in-up" data-delay="0.3">
+          <a href="#docs" class="btn btn-primary">Get Started</a>
+          <a href="#playground" class="btn btn-secondary">Live Playground ↓</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="cube" id="demo-cube">
+          <div class="face front"></div>
+          <div class="face back"></div>
+          <div class="face right"></div>
+          <div class="face left"></div>
+          <div class="face top"></div>
+          <div class="face bottom"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ═══════════════════ FEATURES ═══════════════════ -->
+    <section class="features" id="features">
+      <h3 class="section-title">Why Motion.js?</h3>
+      <p class="section-desc">Built to solve the real frustrations developers face with existing animation libraries.
+      </p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h4>Ultra Lightweight</h4>
+          <p>Under 5KB gzipped. No bloated bundles, no tree-shaking headaches. Just drop it in and go.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h4>Chainable API</h4>
+          <p>Sequence animations effortlessly with <code>.animate().then()</code> — no callback hell, no timeline
+            complexity.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h4>Zero Dependencies</h4>
+          <p>Pure vanilla JavaScript. Works in any framework — React, Vue, Svelte, or plain HTML. No lock-in.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h4>Declarative HTML</h4>
+          <p>Add <code>data-motion="fade-in-up"</code> to any element. Animations work with zero JavaScript needed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h4>13 Built-in Easings</h4>
+          <p>From smooth <code>easeOutQuad</code> to bouncy <code>easeOutElastic</code> — expressive motion out of the
+            box.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📦</div>
+          <h4>Auto-Stagger</h4>
+          <p>Animate multiple elements and each one gets a 100ms delay automatically. Beautiful cascade effects
+            instantly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ DOCUMENTATION ═══════════════════ -->
+    <section class="docs" id="docs">
+      <h3 class="section-title">Documentation</h3>
+      <p class="section-desc">Everything you need to start animating in under 2 minutes.</p>
+
+      <!-- Install -->
+      <div class="doc-block">
+        <h4 class="doc-heading">1. Installation</h4>
+        <p class="doc-text">Include Motion.js as an ES Module. No npm install required — just reference the file.</p>
+        <div class="code-block">
+          <div class="code-header"><span>HTML</span></div>
+          <pre><code>&lt;script type="module" src="path/to/index.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Declarative -->
+      <div class="doc-block">
+        <h4 class="doc-heading">2. Declarative Animations (Zero JavaScript)</h4>
+        <p class="doc-text">The simplest way to use Motion.js. Just add <code>data-motion</code> attributes to your HTML
+          and elements animate automatically on page load. Use <code>data-delay</code> for sequencing.</p>
+        <div class="code-block">
+          <div class="code-header"><span>HTML</span></div>
+          <pre><code>&lt;h1 data-motion="fade-in-up"&gt;I animate on load&lt;/h1&gt;
+
+&lt;p data-motion="fade-in-down" data-delay="0.3"&gt;
+  I appear 300ms later
+&lt;/p&gt;</code></pre>
+        </div>
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Values</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>data-motion</code></td>
+                <td><code>fade-in</code>, <code>fade-in-up</code>, <code>fade-in-down</code></td>
+                <td>Animation type to play on load</td>
+              </tr>
+              <tr>
+                <td><code>data-delay</code></td>
+                <td>Number (seconds)</td>
+                <td>Delay before animation starts</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Imperative -->
+      <div class="doc-block">
+        <h4 class="doc-heading">3. JavaScript API</h4>
+        <p class="doc-text">For full control, use the <code>motion()</code> function. Pass a CSS selector, DOM element,
+          or NodeList.</p>
+        <div class="code-block">
+          <div class="code-header"><span>JavaScript</span></div>
+          <pre><code>import { motion } from './index.js';
+
+// Animate a single element
+motion('#my-box').animate(
+  { opacity: 1, translateY: 0 },
+  { duration: 600, ease: 'easeOutBack' }
+);</code></pre>
+        </div>
+      </div>
+
+      <!-- Chaining -->
+      <div class="doc-block">
+        <h4 class="doc-heading">4. Chaining Animations</h4>
+        <p class="doc-text">Chain <code>.then()</code> to run animations sequentially. Each step waits for the previous
+          one to complete — no manual timers needed.</p>
+        <div class="code-block">
+          <div class="code-header"><span>JavaScript</span></div>
+          <pre><code>motion('#cube')
+  .animate({ scale: 1.2, rotate: 90 },  { duration: 500, ease: 'easeOutExpo' })
+  .then({ scale: 0.8, rotate: 180 },    { duration: 400, ease: 'easeInOutQuad' })
+  .then({ scale: 1, rotate: 360 },      { duration: 800, ease: 'easeOutBounce' });</code></pre>
+        </div>
+      </div>
+
+      <!-- Stagger -->
+      <div class="doc-block">
+        <h4 class="doc-heading">5. Stagger Animations</h4>
+        <p class="doc-text">When you target multiple elements (e.g. via a CSS class selector), Motion.js automatically
+          adds a <strong>100ms stagger delay</strong> between each element. This creates a beautiful cascading wave
+          effect — commonly used for lists, grids, and card layouts.</p>
+        <div class="code-block">
+          <div class="code-header"><span>JavaScript</span></div>
+          <pre><code>// Each .card fades in 100ms after the previous one
+motion('.card').animate(
+  { opacity: 1, scale: 1 },
+  { duration: 600, ease: 'easeOutBack' }
+);</code></pre>
+        </div>
+        <p class="doc-text doc-note">💡 <strong>Tip:</strong> The stagger delay stacks with the <code>delay</code>
+          option. If you set <code>delay: 200</code>, the first element starts at 200ms, the second at 300ms, third at
+          400ms, etc.</p>
+      </div>
+
+      <!-- Properties -->
+      <div class="doc-block">
+        <h4 class="doc-heading">6. Animatable Properties</h4>
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Unit</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>opacity</code></td>
+                <td>CSS</td>
+                <td>0–1</td>
+                <td><code>{ opacity: 1 }</code></td>
+              </tr>
+              <tr>
+                <td><code>translateX</code></td>
+                <td>Transform</td>
+                <td>px</td>
+                <td><code>{ translateX: 100 }</code></td>
+              </tr>
+              <tr>
+                <td><code>translateY</code></td>
+                <td>Transform</td>
+                <td>px</td>
+                <td><code>{ translateY: -50 }</code></td>
+              </tr>
+              <tr>
+                <td><code>scale</code></td>
+                <td>Transform</td>
+                <td>unitless</td>
+                <td><code>{ scale: 1.5 }</code></td>
+              </tr>
+              <tr>
+                <td><code>rotate</code></td>
+                <td>Transform</td>
+                <td>deg</td>
+                <td><code>{ rotate: 180 }</code></td>
+              </tr>
+              <tr>
+                <td><code>skewX</code> / <code>skewY</code></td>
+                <td>Transform</td>
+                <td>deg</td>
+                <td><code>{ skewX: 15 }</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Easings -->
+      <div class="doc-block">
+        <h4 class="doc-heading">7. Easing Functions</h4>
+        <p class="doc-text">Pass any of these as the <code>ease</code> option:</p>
+        <div class="easing-tags">
+          <span class="easing-tag">linear</span>
+          <span class="easing-tag">easeInQuad</span>
+          <span class="easing-tag">easeOutQuad</span>
+          <span class="easing-tag">easeInOutQuad</span>
+          <span class="easing-tag">easeInCubic</span>
+          <span class="easing-tag">easeOutCubic</span>
+          <span class="easing-tag">easeInOutCubic</span>
+          <span class="easing-tag">easeInExpo</span>
+          <span class="easing-tag">easeOutExpo</span>
+          <span class="easing-tag">easeInOutExpo</span>
+          <span class="easing-tag hot">easeOutBack</span>
+          <span class="easing-tag hot">easeOutElastic</span>
+          <span class="easing-tag hot">easeOutBounce</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ PLAYGROUND ═══════════════════ -->
+    <section class="playground" id="playground">
+      <h3 class="section-title">Live Playground</h3>
+      <p class="section-desc">Click the buttons below to see Motion.js in action — all animations are powered by the
+        library in real-time.</p>
+
+      <!-- Demo 1: Cube -->
+      <div class="demo-panel">
+        <div class="demo-info">
+          <h4>🎲 Chained Cube Animation</h4>
+          <p>Demonstrates sequential chaining: the cube scales up → rotates → bounces back, each step waiting for the
+            previous one.</p>
+          <div class="code-block code-block-sm">
+            <pre><code>motion('#cube')
+  .animate({ scale: 1.2, rotate: 90 })
+  .then({ scale: 0.8, rotate: 180 })
+  .then({ scale: 1, rotate: 360 })</code></pre>
+          </div>
+          <button class="btn btn-primary" id="btn-animate-demo">▶ Run Cube Animation</button>
+        </div>
+        <div class="demo-visual">
+          <div class="cube" id="demo-cube-playground">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo 2: Stagger Grid -->
+      <div class="demo-panel">
+        <div class="demo-info">
+          <h4>🌊 Stagger Animation</h4>
+          <p>When you animate multiple elements with one <code>motion()</code> call, each element receives an automatic
+            <strong>100ms stagger delay</strong>. This creates a wave-like cascade effect — perfect for revealing lists,
+            grids, dashboards, or card layouts.</p>
+          <div class="code-block code-block-sm">
+            <pre><code>// Each box appears 100ms after the previous
+motion('.grid-box').animate(
+  { opacity: 1, scale: 1 },
+  { duration: 600, ease: 'easeOutBack' }
+)</code></pre>
+          </div>
+          <button class="btn btn-primary" id="btn-stagger-demo">▶ Run Stagger Animation</button>
+          <button class="btn btn-secondary" id="btn-stagger-reset">↺ Reset</button>
+        </div>
+        <div class="demo-visual">
+          <div class="grid" id="stagger-grid">
+            <!-- Boxes injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo 3: Easing Comparison -->
+      <div class="demo-panel">
+        <div class="demo-info">
+          <h4>📈 Easing Comparison</h4>
+          <p>See the difference easings make. All three bars animate to the same end position, but with different easing
+            curves.</p>
+          <button class="btn btn-primary" id="btn-easing-demo">▶ Compare Easings</button>
+          <button class="btn btn-secondary" id="btn-easing-reset">↺ Reset</button>
+        </div>
+        <div class="demo-visual demo-visual-vertical">
+          <div class="easing-row">
+            <span class="easing-label">easeOutQuad</span>
+            <div class="easing-track">
+              <div class="easing-ball" id="ball-quad"></div>
+            </div>
+          </div>
+          <div class="easing-row">
+            <span class="easing-label">easeOutBounce</span>
+            <div class="easing-track">
+              <div class="easing-ball" id="ball-bounce"></div>
+            </div>
+          </div>
+          <div class="easing-row">
+            <span class="easing-label">easeOutElastic</span>
+            <div class="easing-track">
+              <div class="easing-ball" id="ball-elastic"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ ARCHITECTURE ═══════════════════ -->
+    <section class="architecture" id="architecture">
+      <h3 class="section-title">Architecture</h3>
+      <p class="section-desc">Motion.js is built from 5 focused modules — each under 100 lines of code.</p>
+      <div class="arch-grid">
+        <div class="arch-card">
+          <code>core/engine.js</code>
+          <p>Single <code>requestAnimationFrame</code> loop shared by all active animations.</p>
+        </div>
+        <div class="arch-card">
+          <code>core/tween.js</code>
+          <p>Interpolates values from A → B over time, applying easing curves.</p>
+        </div>
+        <div class="arch-card">
+          <code>utils/easing.js</code>
+          <p>13 mathematical easing functions (quad, cubic, expo, back, elastic, bounce).</p>
+        </div>
+        <div class="arch-card">
+          <code>dom/adapter.js</code>
+          <p>Reads/writes DOM styles. Uses a WeakMap to compose multiple transforms per element.</p>
+        </div>
+        <div class="arch-card">
+          <code>index.js</code>
+          <p>Public API: <code>motion()</code> factory, chaining, and <code>data-motion</code> auto-initializer.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ FOOTER ═══════════════════ -->
+    <footer class="footer">
+      <p>Motion.js — Built with ❤️ as a zero-dependency animation library.</p>
+      <p class="footer-sub">MIT License</p>
+    </footer>
+
+  </div>
+  <script type="module" src="./src/demo.js"></script>
+</body>
+
+</html>
