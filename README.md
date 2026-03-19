@@ -89,7 +89,3 @@ Chain sequential animations after the previous one completes.
 | `utils/easing.js` | 13 standard easing functions |
 | `dom/adapter.js` | DOM property reader/writer with transform composition |
 | `index.js` | Public API (`motion()`, `initDataMotion()`) |
-
-## License
-
-MIT
